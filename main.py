@@ -7,7 +7,7 @@ class weather :
         self.url=" http://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}"
         self.header={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                                   'Chrome/63.0.3239.132 Safari/537.36'}
-    def requestWeather(self):
+    def requestTemperture(self):
         final_url = self.url.format(city="Lille, fr",key=self.key)
         r=requests.get(final_url,headers=self.header)
         sdw=r.content.decode('utf-8')
@@ -19,5 +19,5 @@ class weather :
 if __name__ == '__main__':
 
     w = weather()
-    T = w.requestWeather()
+    T = w.requestTemperture()
     print (str(T)+"°c")
